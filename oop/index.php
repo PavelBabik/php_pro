@@ -1,19 +1,15 @@
 <?php
 
-include 'Car.php';
 include 'ChildCar.php';
-
-$car = new Car('BMW', 180);
-$car->start();
-$car->up(170);
+include 'SmallChild.php';
 
 echo PHP_EOL . '--------------------------------------------------------------------------------------' . PHP_EOL;
 
 $cars = [
-    new Car('Audi', 220),
-    new Car('BMW', 240),
+    new SmallChild('Audi', 220, 'car for big boys', 'not fast not it\'s good'),
+    new SmallChild('BMW', 240, 'car for big boys', 'not fast not it\'s good'),
 ];
-
+//
 foreach ($cars as $car) {
     $car->start();
     $car->up(150);
