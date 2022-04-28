@@ -6,8 +6,8 @@ include 'SmallChild.php';
 echo PHP_EOL . '--------------------------------------------------------------------------------------' . PHP_EOL;
 
 $cars = [
+    new SmallChild('Ford', 220, 'car for big boys', 'not fast not it\'s good'),
     new SmallChild('Audi', 220, 'car for big boys', 'not fast not it\'s good'),
-    new SmallChild('BMW', 240, 'car for big boys', 'not fast not it\'s good'),
 ];
 //
 foreach ($cars as $car) {
@@ -20,8 +20,6 @@ foreach ($cars as $car) {
 echo '--------------------------------------------------------------------------------------' . PHP_EOL;
 
 $children_cars = [
-    new ChildCar('DAF', 130, 'track', 'slow'),
-    new ChildCar('Ferrari', 350, 'supercar', 'very fast'),
     new ChildCar('VW Beatle', 100, 'old car', 'very slow'),
 ];
 

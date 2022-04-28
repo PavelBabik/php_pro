@@ -5,6 +5,7 @@ class SmallChild extends ChildCar
 
     function start()
     {
+        parent::start();
         echo 'I am from SmallChild class';
         echo 'I am a ' . $this->model . ' and I START work. And my max speed is ' . $this->max_speed . PHP_EOL;
     }

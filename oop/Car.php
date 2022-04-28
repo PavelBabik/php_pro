@@ -1,44 +1,37 @@
 <?php
 
-interface MovableInterface
-{
-    /**
-     * Включает зажигание
-     * @return mixed
-     */
-    public function start();
+include 'MovableInterface.php';
 
-    /**
-     * Выключает зажигание
-     * @return mixed
-     */
-    public function stop();
-
-    /**
-     * Увеличивает скорость движения
-     * @param int $unit
-     * @return mixed
-     */
-    public function up(int $unit);
-
-    /**
-     * Уменьшает скорость движения
-     * @param int $unit
-     * @return mixed
-     */
-    public function down(int $unit);
-}
-
-abstract class Car implements MovableInterface
+abstract class Car implements \oop\MovableInterface
 {
     public $speed = 0;
-    public $max_speed;
-    public $model;
+    protected $max_speed;
+    protected $model;
+
+    protected static $country;
+
+    protected static function getCountry()
+    {
+        return self::$country;
+    }
+
+    protected static function setCountry($country)
+    {
+        self::$country = $country;
+    }
+
+    public const COUNTRY_USA = 'USA';
+    public const COUNTRY_GERMANY = 'GERMANY';
 
     public function __construct(string $model, int $max_speed)
     {
         $this->model = $model;
         $this->max_speed = $max_speed;
+        if ($this->model === 'Ford') {
+            self::setCountry(self::COUNTRY_USA);
+        } else {
+            self::setCountry(self::COUNTRY_GERMANY);
+        }
     }
 
     abstract function start();

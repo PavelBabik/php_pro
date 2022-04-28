@@ -4,18 +4,21 @@ include 'Car.php';
 
 class ChildCar extends Car
 {
-    private $type;
-    private $speed_type;
+    private string $type;
+    private string $speed_type;
+    private string $birthCountry;
 
     public function __construct(string $model, int $max_speed, string $type, string $speed_type)
     {
         parent::__construct($model, $max_speed);
         $this->type = $type;
         $this->speed_type = $speed_type;
+        $this->birthCountry = self::getCountry();
     }
 
     public function start()
     {
+        echo 'I was made in ' . $this->birthCountry . PHP_EOL;
         echo 'I am a ' . $this->model . ' and I START work. And my max speed is ' . $this->max_speed . PHP_EOL;
         echo 'My type is ' . $this->type . PHP_EOL;
     }
